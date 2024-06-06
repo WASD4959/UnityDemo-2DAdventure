@@ -92,13 +92,14 @@ public class PlayerController : MonoBehaviour
 
     private void Update() {
         inputDirection = inputControl.GamePlay.Move.ReadValue<Vector2>();
-        //判断材质
-        CheckState();
     }
 
     private void FixedUpdate() {
         if(!isHurt && !isAttack)
             Move();
+
+        //判断材质
+        CheckState(); //物理判断应放入fixupdate,这解决了player在重新激活后蹬墙跳力度变化的bug
     }
 
     public void Move() {
@@ -206,9 +207,6 @@ public class PlayerController : MonoBehaviour
 
         if(physicsCheck.onWall){
             rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y / 2.0f);
-        }
-        else{
-            rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y);
         }
 
         if(wallJump && rb.velocity.y < 0.0f){

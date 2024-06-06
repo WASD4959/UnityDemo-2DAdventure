@@ -10,20 +10,25 @@ public class caneraControl : MonoBehaviour
     public CinemachineImpulseSource ImpulseSource;
     public VoidEventSO cameraShakeEvent;
 
+    [Header("事件监听")]
+    public VoidEventSO SceneLoadedEvent;
+
     private void Awake() {
         confiner2D = GetComponent<CinemachineConfiner2D>();       
     }
 
-    private void Start() {
-        GetNewCameraBounds();
-    }
+    // private void Start() {
+    //     GetNewCameraBounds();
+    // }
 
     private void OnEnable(){
         cameraShakeEvent.OnEventRaised += OnCameraShakeEvent;
+        SceneLoadedEvent.OnEventRaised += GetNewCameraBounds;
     }
 
     private void OnDisable() {
         cameraShakeEvent.OnEventRaised -= OnCameraShakeEvent;
+        SceneLoadedEvent.OnEventRaised -= GetNewCameraBounds;
     }
 
     private void OnCameraShakeEvent()

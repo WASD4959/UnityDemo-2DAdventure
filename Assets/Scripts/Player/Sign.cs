@@ -27,6 +27,11 @@ public class Sign : MonoBehaviour
         playerInput.GamePlay.Confirm.started += OnConfirm;
     }
 
+    private void OnDisable() {
+        InputSystem.onActionChange -= OnActionChange;
+        playerInput.GamePlay.Confirm.started -= OnConfirm;
+    }
+
     /// <summary>
     /// 切换设备时切换动画
     /// </summary>
