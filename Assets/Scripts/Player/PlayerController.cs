@@ -9,6 +9,10 @@ using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
+    [Header("监听事件")]
+    public SceneLoadEventSO loadEvent;
+    public VoidEventSO SceneLoadedEvent;
+
     public PlayerInputControl inputControl;
     public Rigidbody2D rb;
     private SpriteRenderer spriteRenderer;
@@ -84,10 +88,15 @@ public class PlayerController : MonoBehaviour
 
     private void OnEnable() {
         inputControl.Enable();
+        // //加载场景时对玩家输入的控制；
+        // loadEvent.LoadRequestEvent += OnLoadEvent;
+        // SceneLoadedEvent.OnEventRaised += OnSceneLoadedEvent;
     }
 
     private void OnDisable() {
         inputControl.Disable();
+        loadEvent.LoadRequestEvent -= OnLoadEvent;
+        SceneLoadedEvent.OnEventRaised -= OnSceneLoadedEvent;
     }
 
     private void Update() {
@@ -100,6 +109,18 @@ public class PlayerController : MonoBehaviour
 
         //判断材质
         CheckState(); //物理判断应放入fixupdate,这解决了player在重新激活后蹬墙跳力度变化的bug
+    }
+
+    //场景加载时禁用控制
+    private void OnLoadEvent(GameSceneSO arg0, Vector3 arg1, bool arg2)
+    {
+        inputControl.GamePlay.Disable();
+    }
+
+    //场景加载结束启用控制
+    private void OnSceneLoadedEvent()
+    {
+        inputControl.GamePlay.Enable();
     }
 
     public void Move() {

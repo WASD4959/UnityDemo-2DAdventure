@@ -47,7 +47,7 @@ public class SceneLoader : MonoBehaviour
 
     private void NewGame(){
         sceneToLoad = firstLoadScene;
-        OnLoadRequestEvent(sceneToLoad, firstPosition, true);
+        loadEventSO.RaiseLoadRequestEvent(sceneToLoad, firstPosition, true);
     }
 
     /// <summary>
@@ -110,6 +110,7 @@ public class SceneLoader : MonoBehaviour
 
         isLoading = false;
 
+        // if(currentLoadScene.sceneType == SceneType.Location)
         //场景加载完成后事件
         SceneLoadedEvent.RaiseEvent();
     }

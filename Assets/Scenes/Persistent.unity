@@ -574,7 +574,7 @@ Transform:
   m_GameObject: {fileID: 467961682}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -8.81, y: 0.32999992, z: -10.8}
+  m_LocalPosition: {x: -7.0599995, y: -8.7, z: -10.8}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -754,7 +754,7 @@ Transform:
   m_GameObject: {fileID: 515579361}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -8.81, y: -0.77, z: -0.8}
+  m_LocalPosition: {x: -7.06, y: -9.8, z: -0.8}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -836,6 +836,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 702a8d4a95bbbf84e8e7dad1b6447632, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  loadEvent: {fileID: 11400000, guid: 1dc97c666292293428592be55143785a, type: 2}
+  SceneLoadedEvent: {fileID: 11400000, guid: b6cb129d9ec1f9842ac0e724dd6b15e4, type: 2}
   rb: {fileID: 0}
   inputDirection: {x: 0, y: 0}
   speed: 290
@@ -1176,7 +1178,7 @@ Transform:
   m_GameObject: {fileID: 519420028}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -8.81, y: 0.32999992, z: -10.8}
+  m_LocalPosition: {x: -7.0599995, y: -8.7, z: -10.8}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1593,6 +1595,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerStatBar: {fileID: 397447731}
   healthEvent: {fileID: 11400000, guid: d6de36cac2942ae4fab85a0681814ab7, type: 2}
+  loadEvent: {fileID: 11400000, guid: 1dc97c666292293428592be55143785a, type: 2}
 --- !u!1 &788528658
 GameObject:
   m_ObjectHideFlags: 0
@@ -1773,9 +1776,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerTrans: {fileID: 515579363}
-  firstPosition: {x: -10.93, y: -13.72, z: -0.8}
+  firstPosition: {x: -7.06, y: -9.8, z: -0.8}
   loadEventSO: {fileID: 11400000, guid: 1dc97c666292293428592be55143785a, type: 2}
-  firstLoadScene: {fileID: 11400000, guid: 8c72d098b6ad728409e35a4ea96a69cc, type: 2}
+  firstLoadScene: {fileID: 11400000, guid: 537b30b4714e17948a7e691a5542a376, type: 2}
   FadeEvent: {fileID: 11400000, guid: 1da92bca574cf1f4da38aed6a80c71ff, type: 2}
   SceneLoadedEvent: {fileID: 11400000, guid: b6cb129d9ec1f9842ac0e724dd6b15e4, type: 2}
   fadeDuration: 0.5
