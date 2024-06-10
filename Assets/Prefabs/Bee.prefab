@@ -243,7 +243,7 @@ MonoBehaviour:
   checkRadius: 0
   groundlayer:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 64
   isGround: 0
   touchLeftWall: 0
   touchRightWall: 0
@@ -346,6 +346,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: abfa1956f89657c4f8aeddcd0cf07dcb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  newGameEvent: {fileID: 11400000, guid: 83bf9b642f7ed694b8e209e5969fca98, type: 2}
   maxHealth: 50
   currentHealth: 0
   maxPower: 0

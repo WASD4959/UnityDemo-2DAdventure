@@ -13,16 +13,21 @@ public class SceneLoader : MonoBehaviour
 {
     public Transform playerTrans;
     public Vector3 firstPosition;
+    public Vector3 menuPosition;
 
     [Header("事件监听")]
     public SceneLoadEventSO loadEventSO;
-    public GameSceneSO firstLoadScene;
+    public VoidEventSO newGame;
 
     [Header("事件广播")]
     public FadeEventSO FadeEvent;
     public VoidEventSO SceneLoadedEvent;
-    private GameSceneSO currentLoadScene;
+    public SceneLoadEventSO unloadedSceneEvent;
 
+    [Header("场景")]
+    public GameSceneSO firstLoadScene;
+    public GameSceneSO menuScene;
+    private GameSceneSO currentLoadScene;
     private GameSceneSO sceneToLoad;
     private Vector3 posToGo;
     private bool fadeScreen;
@@ -30,19 +35,22 @@ public class SceneLoader : MonoBehaviour
     public float fadeDuration;
 
     private void Awake() {
-
+       
     }
     
     private void Start() {
-        NewGame();
+        loadEventSO.RaiseLoadRequestEvent(menuScene, menuPosition, true);
+        // NewGame();
     }
 
     private void OnEnable() {
         loadEventSO.LoadRequestEvent += OnLoadRequestEvent;
+        newGame.OnEventRaised += NewGame;
     }
 
     private void OnDisable() {
         loadEventSO.LoadRequestEvent -= OnLoadRequestEvent;
+        newGame.OnEventRaised -= NewGame;
     }
 
     private void NewGame(){
@@ -79,6 +87,11 @@ public class SceneLoader : MonoBehaviour
         }
 
         yield return new WaitForSeconds(fadeDuration);  
+
+        //广播事件调整血条显示
+        unloadedSceneEvent.RaiseLoadRequestEvent(sceneToLoad, posToGo, true);
+
+        
         yield return currentLoadScene.sceneReference.UnLoadScene();
 
         //关闭人物

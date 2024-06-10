@@ -5,6 +5,9 @@ using UnityEngine.Events;
 
 public class Character : MonoBehaviour
 {
+    [Header("事件监听")]
+    public VoidEventSO newGameEvent;
+
     [Header("基本属性")]
     public float maxHealth;
     public float currentHealth;
@@ -25,6 +28,12 @@ public class Character : MonoBehaviour
         OnHealthChange?.Invoke(this);
     }
 
+    private void NewGame() {
+        currentHealth = maxHealth;
+        currentPower = maxPower;
+        OnHealthChange?.Invoke(this);
+    }
+
     private void Update() {
         if(invulnerable) {
             invulnerableCounter -= Time.deltaTime;
@@ -36,6 +45,13 @@ public class Character : MonoBehaviour
         if(currentPower < maxPower){
             currentPower += Time.deltaTime * powerRecoverSpeed;
         }
+    }
+    private void OnEnable() {
+        newGameEvent.OnEventRaised += NewGame;
+    }
+
+    private void OnDisable() {
+        newGameEvent.OnEventRaised -= NewGame;
     }
 
     private void OnTriggerStay2D(Collider2D other) {
