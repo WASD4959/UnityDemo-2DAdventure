@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class Character : MonoBehaviour
+public class Character : MonoBehaviour, ISaveable
 {
     [Header("事件监听")]
     public VoidEventSO newGameEvent;
@@ -48,10 +48,20 @@ public class Character : MonoBehaviour
     }
     private void OnEnable() {
         newGameEvent.OnEventRaised += NewGame;
+        ISaveable saveable = this;
+        // saveable.RegisterSaveData();
+
+        if (saveable != null) {
+            saveable.RegisterSaveData();
+        } else {
+            Debug.LogError("Saveable interface is not implemented correctly.");
+        }
     }
 
     private void OnDisable() {
         newGameEvent.OnEventRaised -= NewGame;
+        ISaveable saveable = this;
+        saveable.UnRegisterSaveData();
     }
 
     private void OnTriggerStay2D(Collider2D other) {
@@ -93,5 +103,26 @@ public class Character : MonoBehaviour
     public void OnSlide(int cost){
         currentPower -= cost;
         OnHealthChange?.Invoke(this);
+    }
+
+    public DataDefinition GetDataID()
+    {
+        return GetComponent<DataDefinition>();
+    }
+
+    public void GetSaveData(Data data)
+    {
+        if(data.characterPosDic.ContainsKey(GetDataID().ID)){
+            data.characterPosDic[GetDataID().ID] = transform.position;
+        }else{
+            data.characterPosDic.Add(GetDataID().ID, transform.position);
+        }
+    }
+
+    public void LoadData(Data data)
+    {
+        if(data.characterPosDic.ContainsKey(GetDataID().ID)){
+            transform.position = data.characterPosDic[GetDataID().ID];
+        }
     }
 }

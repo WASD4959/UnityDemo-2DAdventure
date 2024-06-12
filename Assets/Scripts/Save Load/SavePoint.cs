@@ -6,7 +6,7 @@ using UnityEngine;
 public class NewBehaviourScript : MonoBehaviour, IInteractable
 {
     [Header("事件广播")]
-    public VoidEventSO LoadGameEvent;
+    public VoidEventSO saveDataEvent;
 
     [Header("变量参数")]
     public SpriteRenderer spriteRenderer;
@@ -29,7 +29,7 @@ public class NewBehaviourScript : MonoBehaviour, IInteractable
             
 
             //TODO:保存数据
-            LoadGameEvent.RaiseEvent();
+            saveDataEvent.RaiseEvent();
 
             this.gameObject.tag = "Untagged";
         }
