@@ -9,7 +9,7 @@ using UnityEngine.ResourceManagement.AsyncOperations;
 using UnityEngine.ResourceManagement.ResourceProviders;
 using UnityEngine.SceneManagement;
 
-public class SceneLoader : MonoBehaviour
+public class SceneLoader : MonoBehaviour, ISaveable
 {
     public Transform playerTrans;
     public Vector3 firstPosition;
@@ -46,11 +46,17 @@ public class SceneLoader : MonoBehaviour
     private void OnEnable() {
         loadEventSO.LoadRequestEvent += OnLoadRequestEvent;
         newGame.OnEventRaised += NewGame;
+
+        ISaveable saveable = this;
+        saveable.RegisterSaveData();
     }
 
     private void OnDisable() {
         loadEventSO.LoadRequestEvent -= OnLoadRequestEvent;
         newGame.OnEventRaised -= NewGame;
+
+        ISaveable saveable = this;
+        saveable.UnRegisterSaveData();
     }
 
     private void NewGame(){
@@ -126,5 +132,25 @@ public class SceneLoader : MonoBehaviour
         // if(currentLoadScene.sceneType == SceneType.Location)
         //场景加载完成后事件
         SceneLoadedEvent.RaiseEvent();
+    }
+
+    public DataDefinition GetDataID()
+    {
+        return GetComponent<DataDefinition>();
+    }
+
+    public void GetSaveData(Data data)
+    {
+        data.SaveGameScene(currentLoadScene);
+    }
+
+    public void LoadData(Data data)
+    {
+        var playerID = playerTrans.GetComponent<DataDefinition>().ID;
+        if(data.characterPosDic.ContainsKey(playerID)){
+            sceneToLoad = data.GetSavedScene();
+
+            loadEventSO.RaiseLoadRequestEvent(sceneToLoad, data.characterPosDic[playerID], true);
+        }
     }
 }

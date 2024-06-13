@@ -52,6 +52,7 @@ public class DataManager : MonoBehaviour
             saveable.GetSaveData(saveData);
         }
 
+        //Log savedCharacter positions;
         foreach (var item in saveData.characterPosDic)
         {
             Debug.Log(item.Key + "      " + item.Value);
