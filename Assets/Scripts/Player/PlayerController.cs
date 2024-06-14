@@ -10,8 +10,10 @@ using UnityEngine.InputSystem;
 public class PlayerController : MonoBehaviour
 {
     [Header("监听事件")]
-    public SceneLoadEventSO loadEvent;
+    public SceneLoadEventSO sceneLoadEvent;
     public VoidEventSO SceneLoadedEvent;
+    public VoidEventSO loadDataEvent;
+    public VoidEventSO backToMenuEvent;
 
     public PlayerInputControl inputControl;
     public Rigidbody2D rb;
@@ -89,14 +91,18 @@ public class PlayerController : MonoBehaviour
     private void OnEnable() {
         inputControl.Enable();
         // //加载场景时对玩家输入的控制；
-        // loadEvent.LoadRequestEvent += OnLoadEvent;
+        // sceneLoadEvent.LoadRequestEvent += OnLoadEvent;
         // SceneLoadedEvent.OnEventRaised += OnSceneLoadedEvent;
+        loadDataEvent.OnEventRaised += OnLoadDataEvent;
+        backToMenuEvent.OnEventRaised += OnLoadDataEvent;
     }
 
     private void OnDisable() {
         inputControl.Disable();
-        loadEvent.LoadRequestEvent -= OnLoadEvent;
-        SceneLoadedEvent.OnEventRaised -= OnSceneLoadedEvent;
+        // sceneLoadEvent.LoadRequestEvent -= OnLoadEvent;
+        // SceneLoadedEvent.OnEventRaised -= OnSceneLoadedEvent;
+        loadDataEvent.OnEventRaised -= OnLoadDataEvent;
+        backToMenuEvent.OnEventRaised -= OnLoadDataEvent;
     }
 
     private void Update() {
@@ -115,6 +121,12 @@ public class PlayerController : MonoBehaviour
     private void OnLoadEvent(GameSceneSO arg0, Vector3 arg1, bool arg2)
     {
         inputControl.GamePlay.Disable();
+    }
+
+    //读取游戏进度更改player状态
+    private void OnLoadDataEvent()
+    {
+        isDead = false;
     }
 
     //场景加载结束启用控制

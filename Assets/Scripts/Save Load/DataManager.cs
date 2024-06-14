@@ -9,6 +9,7 @@ public class DataManager : MonoBehaviour
     public static DataManager instance;
     [Header("事件监听")]
     public VoidEventSO saveDataEvent;
+    public VoidEventSO LoadDataEvent;
 
     private List<ISaveable> saveableList = new List<ISaveable>();
     private Data saveData;
@@ -22,18 +23,20 @@ public class DataManager : MonoBehaviour
         saveData = new Data();
     }
 
-    // Test Load Function
-    private void Update(){
-        if(Keyboard.current.lKey.wasPressedThisFrame)
-            Load();
-    }
+    // // Test Load Function
+    // private void Update(){
+    //     if(Keyboard.current.lKey.wasPressedThisFrame)
+    //         Load();
+    // }
 
     private void OnEnable() {
         saveDataEvent.OnEventRaised += Save;
+        LoadDataEvent.OnEventRaised += Load;
     }
 
     private void OnDisable() {
         saveDataEvent.OnEventRaised -= Save;
+        LoadDataEvent.OnEventRaised -= Load;
     }
 
     public void RegisterSaveData(ISaveable saveable){
@@ -53,7 +56,7 @@ public class DataManager : MonoBehaviour
         }
 
         //Log savedCharacter positions;
-        foreach (var item in saveData.characterPosDic)
+        foreach (var item in saveData.floatSavedData)
         {
             Debug.Log(item.Key + "      " + item.Value);
         }
