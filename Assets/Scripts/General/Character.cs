@@ -113,11 +113,11 @@ public class Character : MonoBehaviour, ISaveable
     public void GetSaveData(Data data)
     {
         if(data.characterPosDic.ContainsKey(GetDataID().ID)){
-            data.characterPosDic[GetDataID().ID] = transform.position;
+            data.characterPosDic[GetDataID().ID] = new SerializeVector3(transform.position);
             data.floatSavedData[GetDataID().ID + "_health"] = this.currentHealth;
             data.floatSavedData[GetDataID().ID + "_power"] = this.currentPower;
         }else{
-            data.characterPosDic.Add(GetDataID().ID, transform.position);
+            data.characterPosDic.Add(GetDataID().ID, new SerializeVector3(transform.position));
             data.floatSavedData.Add(GetDataID().ID + "_health", this.currentHealth);
             data.floatSavedData.Add(GetDataID().ID + "_power", this.currentPower);
         }
@@ -126,7 +126,7 @@ public class Character : MonoBehaviour, ISaveable
     public void LoadData(Data data)
     {
         if(data.characterPosDic.ContainsKey(GetDataID().ID)){
-            transform.position = data.characterPosDic[GetDataID().ID];
+            transform.position = data.characterPosDic[GetDataID().ID].DeserializeVector3();
             this.currentHealth = data.floatSavedData[GetDataID().ID + "_health"];
             this.currentPower = data.floatSavedData[GetDataID().ID + "_power"];
 

@@ -159,7 +159,7 @@ public class SceneLoader : MonoBehaviour, ISaveable
         if(data.characterPosDic.ContainsKey(playerID)){
             sceneToLoad = data.GetSavedScene();
 
-            loadEventSO.RaiseLoadRequestEvent(sceneToLoad, data.characterPosDic[playerID], true);
+            loadEventSO.RaiseLoadRequestEvent(sceneToLoad, data.characterPosDic[playerID].DeserializeVector3(), true);
         }
     }
 }
