@@ -152,7 +152,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Base-UI_2
+      name: stick
       rect:
         serializedVersion: 2
         x: 374
@@ -320,7 +320,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Base-UI_10
+      name: Green
       rect:
         serializedVersion: 2
         x: 140
@@ -677,7 +677,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Base-UI_27
+      name: Blue
       rect:
         serializedVersion: 2
         x: 140
@@ -1076,7 +1076,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Base-UI_46
+      name: Yellow
       rect:
         serializedVersion: 2
         x: 140
@@ -1748,7 +1748,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Base-UI_78
+      name: Red
       rect:
         serializedVersion: 2
         x: 140
@@ -1843,7 +1843,6 @@ TextureImporter:
     secondaryTextures: []
     nameFileIdTable:
       Base-UI_0: 1324269435
-      Base-UI_10: 1913394145
       Base-UI_11: 1641284426
       Base-UI_12: -1536446887
       Base-UI_13: 1651923697
@@ -1852,7 +1851,6 @@ TextureImporter:
       Base-UI_17: -1337086209
       Base-UI_18: 1016036839
       Base-UI_19: 1474119967
-      Base-UI_2: 963891175
       Base-UI_20: 2026112600
       Base-UI_21: -439555544
       Base-UI_22: -1690655816
@@ -1860,7 +1858,6 @@ TextureImporter:
       Base-UI_24: 1603605832
       Base-UI_25: -361797503
       Base-UI_26: -1246155202
-      Base-UI_27: 1224326795
       Base-UI_28: -919522727
       Base-UI_3: -591517245
       Base-UI_30: 2134471770
@@ -1880,7 +1877,6 @@ TextureImporter:
       Base-UI_43: -1820073998
       Base-UI_44: -423462321
       Base-UI_45: 1080326232
-      Base-UI_46: -1465793582
       Base-UI_47: -357153127
       Base-UI_48: 952845542
       Base-UI_49: -2092784510
@@ -1913,7 +1909,6 @@ TextureImporter:
       Base-UI_75: 1736981679
       Base-UI_76: -1381149448
       Base-UI_77: -370132727
-      Base-UI_78: -799282574
       Base-UI_79: -1358486373
       Base-UI_8: -347080490
       Base-UI_80: -608796751
@@ -1924,6 +1919,11 @@ TextureImporter:
       Base-UI_powerFrame: -1944581670
       Base-UI_powerYellow: -907331088
       Base-healthFrame: -1707084721
+      Blue: 1224326795
+      Green: 1913394145
+      Red: -799282574
+      Yellow: -1465793582
+      stick: 963891175
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

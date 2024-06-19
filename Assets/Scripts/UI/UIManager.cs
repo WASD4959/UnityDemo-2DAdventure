@@ -18,6 +18,14 @@ public class UIManager : MonoBehaviour
     [Header("组件")]
     public GameObject gameOverPanel;
     public GameObject restartBtn;
+    public GameObject mobileTouch;
+
+    private void Awake() {
+        #if UNITY_STANDALONE
+            mobileTouch.SetActive(false);
+        #endif
+    }
+
 
     private void OnEnable() {
         healthEvent.OnEventRaised += OnHealthEvent;
