@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
@@ -14,18 +15,26 @@ public class UIManager : MonoBehaviour
     public VoidEventSO loadDataEvent;
     public VoidEventSO gameOverEvent;
     public VoidEventSO backToMenuEvent;
+    public FloatEventSO syncVolumeEvent;
+
+    [Header("广播")]
+    public VoidEventSO PauseEvent;
 
     [Header("组件")]
     public GameObject gameOverPanel;
     public GameObject restartBtn;
     public GameObject mobileTouch;
+    public Button settingBtn;
+    public GameObject pausePanel;
+    public Slider volumeSlider;
 
     private void Awake() {
         #if UNITY_STANDALONE
             mobileTouch.SetActive(false);
         #endif
-    }
 
+        settingBtn.onClick.AddListener(TogglePausePanel);
+    }
 
     private void OnEnable() {
         healthEvent.OnEventRaised += OnHealthEvent;
@@ -33,6 +42,7 @@ public class UIManager : MonoBehaviour
         loadDataEvent.OnEventRaised += OnLoadDataEvent;
         gameOverEvent.OnEventRaised += OnGameOverEvent;
         backToMenuEvent.OnEventRaised += OnLoadDataEvent;
+        syncVolumeEvent.OnEventRaised += OnSyncVolumeEvent;
     }
 
     private void OnDisable() {
@@ -41,6 +51,12 @@ public class UIManager : MonoBehaviour
         loadDataEvent.OnEventRaised -= OnLoadDataEvent;
         gameOverEvent.OnEventRaised -= OnGameOverEvent;
         backToMenuEvent.OnEventRaised -= OnLoadDataEvent;
+        syncVolumeEvent.OnEventRaised -= OnSyncVolumeEvent;
+    }
+
+    private void OnSyncVolumeEvent(float amount)
+    {
+        volumeSlider.value = (amount + 80)/100;
     }
 
     private void OnLoadDataEvent()
@@ -67,4 +83,12 @@ public class UIManager : MonoBehaviour
         playerStatBar.OnHealthChange(percentage);
         playerStatBar.OnPowerChange(character);
     }
+
+    private void TogglePausePanel()
+    {
+        if(Time.timeScale == 1) PauseEvent.RaiseEvent();
+        pausePanel.SetActive(!pausePanel.activeInHierarchy);
+        Time.timeScale = 1 - Time.timeScale;
+    }
 }
+ 

@@ -106,6 +106,32 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: iPhone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -1370,7 +1396,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Base-UI_60
+      name: setting
       rect:
         serializedVersion: 2
         x: 50
@@ -1892,7 +1918,6 @@ TextureImporter:
       Base-UI_58: -1654529199
       Base-UI_59: 371208030
       Base-UI_6: 230181522
-      Base-UI_60: -143811952
       Base-UI_61: -935004735
       Base-UI_62: 432175666
       Base-UI_63: -1011919109
@@ -1923,6 +1948,7 @@ TextureImporter:
       Green: 1913394145
       Red: -799282574
       Yellow: -1465793582
+      setting: -143811952
       stick: 963891175
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
