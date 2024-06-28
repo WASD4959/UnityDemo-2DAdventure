@@ -8,9 +8,9 @@ public class caneraControl : MonoBehaviour
 {
     private CinemachineConfiner2D confiner2D;
     public CinemachineImpulseSource ImpulseSource;
-    public VoidEventSO cameraShakeEvent;
-
+    
     [Header("事件监听")]
+    public VoidEventSO cameraShakeEvent;
     public VoidEventSO SceneLoadedEvent;
 
     private void Awake() {

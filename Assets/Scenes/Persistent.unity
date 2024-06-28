@@ -1239,6 +1239,7 @@ MonoBehaviour:
   isAttack: 0
   wallJump: 0
   isSlide: 0
+  isBlock: 0
 --- !u!114 &515579367
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1310,11 +1311,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   newGameEvent: {fileID: 11400000, guid: 83bf9b642f7ed694b8e209e5969fca98, type: 2}
+  CameraShakeEvent: {fileID: 11400000, guid: 7b9828a18b039d749968bad78f298d27, type: 2}
   maxHealth: 100
   currentHealth: 0
   maxPower: 15
   currentPower: 0
-  powerRecoverSpeed: 1.2
+  powerRecoverSpeed: 1
   invulnerableDuration: 1
   invulnerableCounter: 0
   invulnerable: 0

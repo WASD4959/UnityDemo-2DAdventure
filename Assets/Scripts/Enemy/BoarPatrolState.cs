@@ -12,7 +12,6 @@ public class BoarPatrolState : BaseState
 
     public override void LogicUpdate()
     {
-        // TODO: 发现player切换到chaseState
         if(currentEnemy.FoundPlayer()){
             currentEnemy.SwitchState(NPCState.Chase);
         }

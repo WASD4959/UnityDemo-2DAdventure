@@ -32,6 +32,7 @@ public class PlayerAnimation : MonoBehaviour
         anim.SetBool("isAttack", playerController.isAttack);
         anim.SetBool("onWall", physicsCheck.onWall);
         anim.SetBool("isSlide", playerController.isSlide);
+        anim.SetBool("isBlock", playerController.isBlock);
     }
 
     public void playHurt() {
@@ -40,5 +41,9 @@ public class PlayerAnimation : MonoBehaviour
 
     public void playAttack() {
         anim.SetTrigger("attack");
+    }
+
+    public void playBlock(){
+        anim.SetTrigger("block");
     }
 }

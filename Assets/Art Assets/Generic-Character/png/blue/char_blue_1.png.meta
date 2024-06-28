@@ -106,6 +106,32 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: iPhone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -1475,7 +1501,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: char_blue_1_65
+      name: block_1
       rect:
         serializedVersion: 2
         x: 0
@@ -1496,7 +1522,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: char_blue_1_66
+      name: block_2
       rect:
         serializedVersion: 2
         x: 56
@@ -1517,7 +1543,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: char_blue_1_67
+      name: block_3
       rect:
         serializedVersion: 2
         x: 112
@@ -1548,6 +1574,9 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
+      block_1: -687167363
+      block_2: -218928801
+      block_3: 931061496
       char_blue_1_0: -2143880125
       char_blue_1_1: 1049466904
       char_blue_1_10: 198943751
@@ -1594,9 +1623,6 @@ TextureImporter:
       char_blue_1_62: 1953886145
       char_blue_1_63: 1577483078
       char_blue_1_64: 360529272
-      char_blue_1_65: -687167363
-      char_blue_1_66: -218928801
-      char_blue_1_67: 931061496
       char_blue_1_7: -1615731408
       char_blue_1_8: -1971341742
       char_blue_1_9: -1984316841

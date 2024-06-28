@@ -58,6 +58,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "Block",
+                    "type": "Button",
+                    "id": "5d09b53d-5e9f-4d59-be90-e32c17b94523",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -251,7 +260,7 @@
                 {
                     "name": "",
                     "id": "f9e424ce-bda1-4fe3-bd9c-56c9f51ae1da",
-                    "path": "<Gamepad>/buttonWest",
+                    "path": "<Gamepad>/rightShoulder",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -300,6 +309,28 @@
                     "processors": "",
                     "groups": "Gamepad",
                     "action": "Confirm",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "338e07a9-f6d7-4fe8-8e6f-5cc4949d169a",
+                    "path": "<Keyboard>/l",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Block",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "31af78dc-0312-4eb4-a9c5-77337cb31882",
+                    "path": "<Gamepad>/leftShoulder",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Block",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

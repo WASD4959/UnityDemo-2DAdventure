@@ -1,12 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
 
 public class Character : MonoBehaviour, ISaveable
 {
+    private PlayerController playerController;
+
     [Header("事件监听")]
     public VoidEventSO newGameEvent;
+    public VoidEventSO CameraShakeEvent;
 
     [Header("基本属性")]
     public float maxHealth;
@@ -14,6 +18,7 @@ public class Character : MonoBehaviour, ISaveable
     public float maxPower;
     public float currentPower;
     public float powerRecoverSpeed;
+    
     [Header("受伤无敌")]
     public float invulnerableDuration;
     [HideInInspector] public float invulnerableCounter;
@@ -21,6 +26,10 @@ public class Character : MonoBehaviour, ISaveable
     public UnityEvent<Character> OnHealthChange;
     public UnityEvent<Transform> OnTakeDamage;
     public UnityEvent OnDie;
+
+    private void Awake() {
+        playerController = GetComponent<PlayerController>();
+    }
 
     private void Start() {
         currentHealth = maxHealth;
@@ -75,6 +84,21 @@ public class Character : MonoBehaviour, ISaveable
     public void TakeDamage(Attack attacker) {
         if(invulnerable)
             return;
+
+        if(playerController != null && playerController.isBlock){
+            if(currentPower - attacker.damage > 0){
+                currentPower -= attacker.damage;
+                TriggerInvulnerable();
+                CameraShakeEvent.RaiseEvent();
+                OnHealthChange?.Invoke(this);
+                return;
+            }
+            else
+            {
+                currentPower = 0;
+                playerController.isBlock = false;
+            }
+        }
             
         if(currentHealth - attacker.damage > 0) {
             currentHealth -= attacker.damage;

@@ -80,6 +80,15 @@ public partial class @PlayerInputControl: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Block"",
+                    ""type"": ""Button"",
+                    ""id"": ""5d09b53d-5e9f-4d59-be90-e32c17b94523"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -273,7 +282,7 @@ public partial class @PlayerInputControl: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""f9e424ce-bda1-4fe3-bd9c-56c9f51ae1da"",
-                    ""path"": ""<Gamepad>/buttonWest"",
+                    ""path"": ""<Gamepad>/rightShoulder"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -322,6 +331,28 @@ public partial class @PlayerInputControl: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": ""Gamepad"",
                     ""action"": ""Confirm"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""338e07a9-f6d7-4fe8-8e6f-5cc4949d169a"",
+                    ""path"": ""<Keyboard>/l"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Block"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""31af78dc-0312-4eb4-a9c5-77337cb31882"",
+                    ""path"": ""<Gamepad>/leftShoulder"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Block"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -915,6 +946,7 @@ public partial class @PlayerInputControl: IInputActionCollection2, IDisposable
         m_GamePlay_Attack = m_GamePlay.FindAction("Attack", throwIfNotFound: true);
         m_GamePlay_Slide = m_GamePlay.FindAction("Slide", throwIfNotFound: true);
         m_GamePlay_Confirm = m_GamePlay.FindAction("Confirm", throwIfNotFound: true);
+        m_GamePlay_Block = m_GamePlay.FindAction("Block", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -994,6 +1026,7 @@ public partial class @PlayerInputControl: IInputActionCollection2, IDisposable
     private readonly InputAction m_GamePlay_Attack;
     private readonly InputAction m_GamePlay_Slide;
     private readonly InputAction m_GamePlay_Confirm;
+    private readonly InputAction m_GamePlay_Block;
     public struct GamePlayActions
     {
         private @PlayerInputControl m_Wrapper;
@@ -1004,6 +1037,7 @@ public partial class @PlayerInputControl: IInputActionCollection2, IDisposable
         public InputAction @Attack => m_Wrapper.m_GamePlay_Attack;
         public InputAction @Slide => m_Wrapper.m_GamePlay_Slide;
         public InputAction @Confirm => m_Wrapper.m_GamePlay_Confirm;
+        public InputAction @Block => m_Wrapper.m_GamePlay_Block;
         public InputActionMap Get() { return m_Wrapper.m_GamePlay; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -1031,6 +1065,9 @@ public partial class @PlayerInputControl: IInputActionCollection2, IDisposable
             @Confirm.started += instance.OnConfirm;
             @Confirm.performed += instance.OnConfirm;
             @Confirm.canceled += instance.OnConfirm;
+            @Block.started += instance.OnBlock;
+            @Block.performed += instance.OnBlock;
+            @Block.canceled += instance.OnBlock;
         }
 
         private void UnregisterCallbacks(IGamePlayActions instance)
@@ -1053,6 +1090,9 @@ public partial class @PlayerInputControl: IInputActionCollection2, IDisposable
             @Confirm.started -= instance.OnConfirm;
             @Confirm.performed -= instance.OnConfirm;
             @Confirm.canceled -= instance.OnConfirm;
+            @Block.started -= instance.OnBlock;
+            @Block.performed -= instance.OnBlock;
+            @Block.canceled -= instance.OnBlock;
         }
 
         public void RemoveCallbacks(IGamePlayActions instance)
@@ -1241,6 +1281,7 @@ public partial class @PlayerInputControl: IInputActionCollection2, IDisposable
         void OnAttack(InputAction.CallbackContext context);
         void OnSlide(InputAction.CallbackContext context);
         void OnConfirm(InputAction.CallbackContext context);
+        void OnBlock(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {

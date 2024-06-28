@@ -52,6 +52,7 @@ public class PlayerController : MonoBehaviour
     public bool isAttack;
     public bool wallJump;
     public bool isSlide;
+    public bool isBlock;
 
     private void Awake() {
         inputControl = new PlayerInputControl();
@@ -81,9 +82,11 @@ public class PlayerController : MonoBehaviour
                 speed = runSpeed;
         };
 
+        //block
+        inputControl.GamePlay.Block.performed += Block;
+        inputControl.GamePlay.Block.canceled += BlockEnd;
         //attack
         inputControl.GamePlay.Attack.started += Attack;
-
         //slide
         inputControl.GamePlay.Slide.started += Slide;
     }
@@ -110,7 +113,7 @@ public class PlayerController : MonoBehaviour
     }
 
     private void FixedUpdate() {
-        if(!isHurt && !isAttack)
+        if(!isHurt && !isAttack && !isBlock)
             Move();
 
         //判断材质
@@ -167,6 +170,7 @@ public class PlayerController : MonoBehaviour
             rb.AddForce(transform.up * jumpForce, ForceMode2D.Impulse);
             //打断滑铲
             isSlide = false;
+            isBlock = false;
             StopAllCoroutines();
             GetComponent<AudioDefination>()?.PlayAudioClip();
         }
@@ -182,6 +186,7 @@ public class PlayerController : MonoBehaviour
     {
         if(physicsCheck.isGround) {
             isAttack = true;
+            isBlock = false;
             playerAnimation.playAttack();
         }
     }
@@ -190,6 +195,7 @@ public class PlayerController : MonoBehaviour
     {
         if(!isSlide && physicsCheck.isGround && character.currentPower > slidePowerCost){
             isSlide = true;
+            isBlock = false;
             slideTimeCounter = slideTime;
 
             var targetPos = new Vector3(transform.position.x + slideDistance * transform.localScale.x, transform.position.y);
@@ -221,6 +227,21 @@ public class PlayerController : MonoBehaviour
 
         isSlide = false;
         gameObject.layer = LayerMask.NameToLayer("Player");
+    }
+
+    private void Block(InputAction.CallbackContext context)
+    {
+        if(physicsCheck.isGround && !isSlide && !isHurt){
+            isBlock = true;
+            playerAnimation.playBlock();
+        }
+        else
+            isBlock = false;
+    }
+
+    private void BlockEnd(InputAction.CallbackContext context)
+    {
+        isBlock = false;
     }
 
     public void GetHurt(Transform attacker) {
