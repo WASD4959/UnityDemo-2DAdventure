@@ -212,6 +212,53 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_ControlPath: <Gamepad>/buttonWest
+--- !u!1 &67959203
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 67959204}
+  - component: {fileID: 67959205}
+  m_Layer: 7
+  m_Name: block
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &67959204
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 67959203}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 515579363}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &67959205
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 67959203}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f50cd923a0436724285243e34c37da03, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playAudioEventSO: {fileID: 11400000, guid: 487326086760ee748ad466e7fdb37829, type: 2}
+  audioClip: {fileID: 8300000, guid: b43d102aac6b145468dcaa94a5cccae1, type: 3}
+  playOnEnable: 0
 --- !u!1 &116039163
 GameObject:
   m_ObjectHideFlags: 0
@@ -876,7 +923,7 @@ Transform:
   m_GameObject: {fileID: 467961682}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -12.67, y: -5.8100004, z: -10}
+  m_LocalPosition: {x: -7.7799997, y: -12.67, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1068,7 +1115,7 @@ GameObject:
   - component: {fileID: 515579373}
   m_Layer: 7
   m_Name: player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1134,12 +1181,13 @@ Transform:
   m_GameObject: {fileID: 515579361}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -12.67, y: -6.91, z: 0}
+  m_LocalPosition: {x: -7.78, y: -13.77, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 403068326}
   - {fileID: 2117832459}
+  - {fileID: 67959204}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!50 &515579364
@@ -1589,7 +1637,7 @@ Transform:
   m_GameObject: {fileID: 519420028}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -12.67, y: -5.8100004, z: -10}
+  m_LocalPosition: {x: -7.7799997, y: -12.67, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2358,7 +2406,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerTrans: {fileID: 515579363}
-  firstPosition: {x: -12.67, y: -6.91, z: 0}
+  firstPosition: {x: -7.78, y: -13.77, z: 0}
   menuPosition: {x: -7.06, y: -9.8, z: -0.8}
   loadEventSO: {fileID: 11400000, guid: 1dc97c666292293428592be55143785a, type: 2}
   newGame: {fileID: 11400000, guid: 83bf9b642f7ed694b8e209e5969fca98, type: 2}
@@ -2366,7 +2414,7 @@ MonoBehaviour:
   FadeEvent: {fileID: 11400000, guid: 1da92bca574cf1f4da38aed6a80c71ff, type: 2}
   SceneLoadedEvent: {fileID: 11400000, guid: b6cb129d9ec1f9842ac0e724dd6b15e4, type: 2}
   unloadedSceneEvent: {fileID: 11400000, guid: 99e1467401be63f41b3da1c5089c7627, type: 2}
-  firstLoadScene: {fileID: 11400000, guid: 919c8d1e27d82e149ba4a3c33e7f645f, type: 2}
+  firstLoadScene: {fileID: 11400000, guid: 8c72d098b6ad728409e35a4ea96a69cc, type: 2}
   menuScene: {fileID: 11400000, guid: 537b30b4714e17948a7e691a5542a376, type: 2}
   fadeDuration: 0.5
 --- !u!4 &905305085

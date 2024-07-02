@@ -106,6 +106,32 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: iPhone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -9602,15 +9628,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Forest-1_452
+      name: Potion
       rect:
         serializedVersion: 2
         x: 432
         y: 32
         width: 16
         height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -11133,7 +11159,6 @@ TextureImporter:
       Forest-1_45: -1504276810
       Forest-1_450: -358783289
       Forest-1_451: 642143943
-      Forest-1_452: 1753219828
       Forest-1_453: 251591435
       Forest-1_454: 274758336
       Forest-1_455: 186902039
@@ -11262,6 +11287,7 @@ TextureImporter:
       Ground_1-7: -575158322
       Ground_1-8: -259607611
       Ground_1-9: 53192803
+      Potion: 1753219828
       waterfall-1: -76039876
       waterfall-10: -62369413
       waterfall-11: -1067982492

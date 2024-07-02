@@ -91,6 +91,7 @@ public class Character : MonoBehaviour, ISaveable
                 TriggerInvulnerable();
                 CameraShakeEvent.RaiseEvent();
                 OnHealthChange?.Invoke(this);
+                transform.Find("block").GetComponent<AudioDefination>()?.PlayAudioClip();
                 return;
             }
             else
