@@ -10782,6 +10782,69 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: Forest-1_15
+      rect:
+        serializedVersion: 2
+        x: 176
+        y: 32
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5b0fea43d79117847b146258b34f1b20
+      internalID: -251998124
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mushroom_1
+      rect:
+        serializedVersion: 2
+        x: 176
+        y: 40
+        width: 32
+        height: 24
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c76640886a0f78f4cae2c08b94bf706f
+      internalID: 2129872319
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mushroom_2
+      rect:
+        serializedVersion: 2
+        x: 176
+        y: 32
+        width: 32
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6b18ed3da9c21e1468a47aa549c81221
+      internalID: -1340871618
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -10840,6 +10903,7 @@ TextureImporter:
       Forest-1_142: 1147243026
       Forest-1_143: -817241098
       Forest-1_144: -1649213761
+      Forest-1_15: -384568834
       Forest-1_150: -995873044
       Forest-1_151: 2093116217
       Forest-1_152: 1163215274
@@ -11288,6 +11352,8 @@ TextureImporter:
       Ground_1-8: -259607611
       Ground_1-9: 53192803
       Potion: 1753219828
+      mushroom_1: 2129872319
+      mushroom_2: -1340871618
       waterfall-1: -76039876
       waterfall-10: -62369413
       waterfall-11: -1067982492
