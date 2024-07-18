@@ -116,6 +116,15 @@ public class PlayerController : MonoBehaviour
         if(!isHurt && !isAttack && !isBlock)
             Move();
 
+        if(isSlide){
+            capsuleCollider.offset = new Vector2(-0.05f, 0.23f);
+            capsuleCollider.size = new Vector2(0.4f, 0.48f);
+        }
+        else{
+            capsuleCollider.offset = originalOffset;
+            capsuleCollider.size = originalSize;
+        }
+
         //判断材质
         CheckState(); //物理判断应放入fixupdate,这解决了player在重新激活后蹬墙跳力度变化的bug
     }
@@ -225,7 +234,7 @@ public class PlayerController : MonoBehaviour
 
         }while(Mathf.Abs(target.x - transform.position.x) > 0.1f && slideTimeCounter > 0);
 
-        isSlide = false;
+        isSlide = false;       
         gameObject.layer = LayerMask.NameToLayer("Player");
     }
 

@@ -1333,7 +1333,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Base-UI_57
+      name: win
       rect:
         serializedVersion: 2
         x: 50
@@ -1914,7 +1914,6 @@ TextureImporter:
       Base-UI_54: -1756642203
       Base-UI_55: 1952307
       Base-UI_56: 27130090
-      Base-UI_57: -403187117
       Base-UI_58: -1654529199
       Base-UI_59: 371208030
       Base-UI_6: 230181522
@@ -1950,6 +1949,7 @@ TextureImporter:
       Yellow: -1465793582
       setting: -143811952
       stick: 963891175
+      win: -403187117
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
