@@ -139,6 +139,8 @@ public class PlayerController : MonoBehaviour
     private void OnLoadDataEvent()
     {
         isDead = false;
+        //将速度置为0避免重复判断死亡
+        rb.velocity = Vector2.zero;
     }
 
     //场景加载结束启用控制

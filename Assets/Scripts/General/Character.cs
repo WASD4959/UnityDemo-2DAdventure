@@ -7,6 +7,7 @@ using UnityEngine.Events;
 public class Character : MonoBehaviour, ISaveable
 {
     private PlayerController playerController;
+    private Rigidbody2D rb;
 
     [Header("事件监听")]
     public VoidEventSO newGameEvent;
@@ -29,6 +30,7 @@ public class Character : MonoBehaviour, ISaveable
 
     private void Awake() {
         playerController = GetComponent<PlayerController>();
+        rb = GetComponent<Rigidbody2D>();
     }
 
     private void Start() {
@@ -54,6 +56,8 @@ public class Character : MonoBehaviour, ISaveable
         if(currentPower < maxPower){
             currentPower += Time.deltaTime * powerRecoverSpeed;
         }
+
+        FallToDeath(rb);
     }
     private void OnEnable() {
         newGameEvent.OnEventRaised += NewGame;
@@ -75,6 +79,16 @@ public class Character : MonoBehaviour, ISaveable
 
     private void OnTriggerStay2D(Collider2D other) {
         if(currentHealth != 0 && other.CompareTag("water")){
+            currentHealth = 0.0f;
+            OnHealthChange?.Invoke(this);
+            OnDie?.Invoke();
+        }
+    }
+
+    private void FallToDeath(Rigidbody2D rb){
+        if(rb == null) return;
+
+        if(rb.velocity.y < -90.0f && currentHealth > 0.0f){
             currentHealth = 0.0f;
             OnHealthChange?.Invoke(this);
             OnDie?.Invoke();
