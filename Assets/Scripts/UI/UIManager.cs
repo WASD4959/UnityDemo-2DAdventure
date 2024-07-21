@@ -15,6 +15,7 @@ public class UIManager : MonoBehaviour
     public VoidEventSO loadDataEvent;
     public VoidEventSO gameOverEvent;
     public VoidEventSO backToMenuEvent;
+    public VoidEventSO gameWinEvent;
     public FloatEventSO syncVolumeEvent;
 
     [Header("广播")]
@@ -22,6 +23,7 @@ public class UIManager : MonoBehaviour
 
     [Header("组件")]
     public GameObject gameOverPanel;
+    public GameObject gameWinPanel;
     public GameObject restartBtn;
     public GameObject mobileTouch;
     public Button settingBtn;
@@ -43,6 +45,7 @@ public class UIManager : MonoBehaviour
         gameOverEvent.OnEventRaised += OnGameOverEvent;
         backToMenuEvent.OnEventRaised += OnLoadDataEvent;
         syncVolumeEvent.OnEventRaised += OnSyncVolumeEvent;
+        gameWinEvent.OnEventRaised += OnGameWinEvent;
     }
 
     private void OnDisable() {
@@ -52,6 +55,7 @@ public class UIManager : MonoBehaviour
         gameOverEvent.OnEventRaised -= OnGameOverEvent;
         backToMenuEvent.OnEventRaised -= OnLoadDataEvent;
         syncVolumeEvent.OnEventRaised -= OnSyncVolumeEvent;
+        gameWinEvent.OnEventRaised -= OnGameWinEvent;
     }
 
     private void OnSyncVolumeEvent(float amount)
@@ -62,6 +66,7 @@ public class UIManager : MonoBehaviour
     private void OnLoadDataEvent()
     {
         gameOverPanel.SetActive(false);
+        gameWinPanel.SetActive(false);
     }
 
     
@@ -69,6 +74,11 @@ public class UIManager : MonoBehaviour
     {
         gameOverPanel.SetActive(true);
         EventSystem.current.SetSelectedGameObject(restartBtn);
+    }
+
+    private void OnGameWinEvent()
+    {
+        gameWinPanel.SetActive(true);
     }
 
     private void OnUnLoadedSceneEvent(GameSceneSO sceneToGo, Vector3 posToGo, bool fadeIn)

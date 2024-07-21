@@ -8362,6 +8362,7 @@ Transform:
   - {fileID: 1999590730}
   - {fileID: 1560995628}
   - {fileID: 205665123}
+  - {fileID: 329073006}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &170242968
@@ -49567,7 +49568,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 329073005}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 9.86, y: 0.23, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -49579,7 +49580,7 @@ Transform:
   - {fileID: 345976918}
   - {fileID: 289384617}
   - {fileID: 2035922204}
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 165341326}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &345976917
 GameObject:
@@ -59707,7 +59708,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sceneToGo: {fileID: 11400000, guid: 919c8d1e27d82e149ba4a3c33e7f645f, type: 2}
   loadEventSO: {fileID: 11400000, guid: 1dc97c666292293428592be55143785a, type: 2}
-  positionToGo: {x: 2.17, y: 8.17, z: 0}
+  positionToGo: {x: 1.98, y: 9.13, z: 0}
 --- !u!1 &2035922203
 GameObject:
   m_ObjectHideFlags: 0
@@ -60756,4 +60757,3 @@ SceneRoots:
   - {fileID: 2116092663}
   - {fileID: 1639719684}
   - {fileID: 165341326}
-  - {fileID: 329073006}

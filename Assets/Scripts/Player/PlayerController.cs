@@ -14,6 +14,7 @@ public class PlayerController : MonoBehaviour
     public VoidEventSO SceneLoadedEvent;
     public VoidEventSO loadDataEvent;
     public VoidEventSO backToMenuEvent;
+    public VoidEventSO gameWinEvent;
 
     public PlayerInputControl inputControl;
     public Rigidbody2D rb;
@@ -53,6 +54,8 @@ public class PlayerController : MonoBehaviour
     public bool wallJump;
     public bool isSlide;
     public bool isBlock;
+    public bool isPreJumpDone;
+    public bool isGameWin;
 
     private void Awake() {
         inputControl = new PlayerInputControl();
@@ -98,6 +101,7 @@ public class PlayerController : MonoBehaviour
         // SceneLoadedEvent.OnEventRaised += OnSceneLoadedEvent;
         loadDataEvent.OnEventRaised += OnLoadDataEvent;
         backToMenuEvent.OnEventRaised += OnLoadDataEvent;
+        gameWinEvent.OnEventRaised += OnGameWinEvent;
     }
 
     private void OnDisable() {
@@ -106,10 +110,16 @@ public class PlayerController : MonoBehaviour
         // SceneLoadedEvent.OnEventRaised -= OnSceneLoadedEvent;
         loadDataEvent.OnEventRaised -= OnLoadDataEvent;
         backToMenuEvent.OnEventRaised -= OnLoadDataEvent;
+        gameWinEvent.OnEventRaised -= OnGameWinEvent;
     }
 
     private void Update() {
         inputDirection = inputControl.GamePlay.Move.ReadValue<Vector2>();
+
+        if(isGameWin && inputControl.UI.AnyKey.triggered){
+            isGameWin = false;
+            backToMenuEvent.RaiseEvent();    
+        }
     }
 
     private void FixedUpdate() {
@@ -117,8 +127,8 @@ public class PlayerController : MonoBehaviour
             Move();
 
         if(isSlide){
-            capsuleCollider.offset = new Vector2(-0.05f, 0.23f);
-            capsuleCollider.size = new Vector2(0.4f, 0.48f);
+            capsuleCollider.offset = new Vector2(-0.05f, 0.42f);
+            capsuleCollider.size = new Vector2(0.7f, 0.85f);
         }
         else{
             capsuleCollider.offset = originalOffset;
@@ -147,6 +157,11 @@ public class PlayerController : MonoBehaviour
     private void OnSceneLoadedEvent()
     {
         inputControl.GamePlay.Enable();
+    }
+
+    private void OnGameWinEvent()
+    {
+        isGameWin = true;
     }
 
     public void Move() {

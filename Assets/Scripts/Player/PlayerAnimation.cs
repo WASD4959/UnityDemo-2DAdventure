@@ -33,6 +33,7 @@ public class PlayerAnimation : MonoBehaviour
         anim.SetBool("onWall", physicsCheck.onWall);
         anim.SetBool("isSlide", playerController.isSlide);
         anim.SetBool("isBlock", playerController.isBlock);
+        anim.SetBool("isPreJumpDone", playerController.isPreJumpDone);
     }
 
     public void playHurt() {
