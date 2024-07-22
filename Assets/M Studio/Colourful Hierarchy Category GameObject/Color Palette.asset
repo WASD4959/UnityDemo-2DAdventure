@@ -15,9 +15,9 @@ MonoBehaviour:
   colorDesigns:
   - keyChar: //
     textColor: {r: 1, g: 1, b: 1, a: 1}
-    backgroundColor: {r: 0.9308176, g: 0.043906372, b: 0.24995345, a: 1}
+    backgroundColor: {r: 0, g: 0.10323961, b: 0.10323961, a: 1}
     textAlignment: 4
-    fontStyle: 1
+    fontStyle: 3
   - keyChar: ///
     textColor: {r: 1, g: 1, b: 1, a: 1}
     backgroundColor: {r: 0, g: 0.6152477, b: 1, a: 1}
@@ -26,7 +26,7 @@ MonoBehaviour:
   - keyChar: '#'
     textColor: {r: 1, g: 1, b: 1, a: 1}
     backgroundColor: {r: 0.5058824, g: 0.84705883, b: 0.81960785, a: 1}
-    textAlignment: 4
+    textAlignment: 1
     fontStyle: 1
   - keyChar: '@'
     textColor: {r: 1, g: 1, b: 1, a: 1}

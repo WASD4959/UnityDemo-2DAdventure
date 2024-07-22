@@ -348,7 +348,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   newGameEvent: {fileID: 11400000, guid: 83bf9b642f7ed694b8e209e5969fca98, type: 2}
-  maxHealth: 50
+  CameraShakeEvent: {fileID: 0}
+  maxHealth: 30
   currentHealth: 0
   maxPower: 0
   currentPower: 0

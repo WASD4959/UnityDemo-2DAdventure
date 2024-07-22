@@ -27,6 +27,36 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 10bb86707f089bc4c8a8a8f578a40226
+    m_Address: mushroom
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3c949fb4aa647fd4b95cade479f05289
+    m_Address: Potion
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9d7a6008566a8254d98bdae51b8978ec
+    m_Address: SaveRock
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6b2d6a54586b26f4d8156a0ab5933dcb
+    m_Address: tree1
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9e8f4928e6aecba45b0a964e5f5e90e6
+    m_Address: tree2
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 76a28fd4e7f93f347bc9056b6205103e
+    m_Address: Trophy
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 9ac9d0a9576ca9f4681ebf5d8fb8f558, type: 2}
   m_SchemaSet:

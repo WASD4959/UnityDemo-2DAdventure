@@ -213,7 +213,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   newGameEvent: {fileID: 11400000, guid: 83bf9b642f7ed694b8e209e5969fca98, type: 2}
-  maxHealth: 50
+  CameraShakeEvent: {fileID: 0}
+  maxHealth: 30
   currentHealth: 0
   maxPower: 0
   currentPower: 0
@@ -290,7 +291,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6de439184b0403a45acf47e3b3187bc3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 5
+  damage: 10
   attackRange: 0
   attackRate: 0
 --- !u!114 &8684737190106127322
