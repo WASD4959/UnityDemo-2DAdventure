@@ -13,12 +13,14 @@ public class PhysicsCheck : MonoBehaviour
     public bool manual;
     public bool isPlayer;
     public Vector2 bottomOffset;
+    public Vector2 ceilOffset;
     public Vector2 leftOffset;
     public Vector2 rightOffset;
     public float checkRadius;
     public LayerMask groundlayer;
     [Header("状态")]
     public bool isGround;
+    public bool isTouchCeil;
     public bool touchLeftWall;
     public bool touchRightWall;
     public bool onWall;
@@ -45,6 +47,9 @@ public class PhysicsCheck : MonoBehaviour
             isGround = Physics2D.OverlapCircle((Vector2)transform.position + new Vector2(bottomOffset.x * transform.localScale.x, bottomOffset.y), checkRadius, groundlayer);
         else
             isGround = Physics2D.OverlapCircle((Vector2)transform.position + new Vector2(bottomOffset.x * transform.localScale.x, 0), checkRadius, groundlayer);
+
+        //检测天花板
+        isTouchCeil = Physics2D.OverlapCircle((Vector2)transform.position + new Vector2(ceilOffset.x * transform.localScale.x, ceilOffset.y), checkRadius, groundlayer);
         
         //墙体判断
         touchLeftWall = Physics2D.OverlapCircle((Vector2)transform.position + leftOffset, checkRadius, groundlayer);
@@ -57,6 +62,7 @@ public class PhysicsCheck : MonoBehaviour
 
     private void OnDrawGizmosSelected() {
         Gizmos.DrawWireSphere((Vector2)transform.position + new Vector2(bottomOffset.x * transform.localScale.x, bottomOffset.y), checkRadius);
+        Gizmos.DrawWireSphere((Vector2)transform.position + new Vector2(ceilOffset.x * transform.localScale.x, ceilOffset.y), checkRadius);
         Gizmos.DrawWireSphere((Vector2)transform.position + leftOffset, checkRadius);
         Gizmos.DrawWireSphere((Vector2)transform.position + rightOffset, checkRadius);
     }

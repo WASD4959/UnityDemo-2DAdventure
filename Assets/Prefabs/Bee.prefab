@@ -239,6 +239,7 @@ MonoBehaviour:
   manual: 0
   isPlayer: 0
   bottomOffset: {x: 0, y: 0}
+  ceilOffset: {x: 0, y: 0}
   leftOffset: {x: 0, y: 0}
   rightOffset: {x: 0, y: 0}
   checkRadius: 0
@@ -246,6 +247,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   isGround: 0
+  isTouchCeil: 0
   touchLeftWall: 0
   touchRightWall: 0
   onWall: 0

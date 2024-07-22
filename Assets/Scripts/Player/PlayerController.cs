@@ -126,7 +126,7 @@ public class PlayerController : MonoBehaviour
         if(!isHurt && !isAttack && !isBlock)
             Move();
 
-        if(isSlide){
+        if(isSlide || (physicsCheck.isTouchCeil && physicsCheck.isGround)){
             capsuleCollider.offset = new Vector2(-0.05f, 0.42f);
             capsuleCollider.size = new Vector2(0.7f, 0.85f);
         }
@@ -137,6 +137,7 @@ public class PlayerController : MonoBehaviour
 
         //判断材质
         CheckState(); //物理判断应放入fixupdate,这解决了player在重新激活后蹬墙跳力度变化的bug
+        physicsCheck.updateOffset();
     }
 
     //场景加载时禁用控制
@@ -170,10 +171,9 @@ public class PlayerController : MonoBehaviour
  
         if(inputDirection.x > 0)
             transform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
-            physicsCheck.updateOffset();
         if(inputDirection.x < 0)
             transform.localScale = new Vector3(-1.0f, 1.0f, 1.0f);
-            physicsCheck.updateOffset();
+            
 
         isCrouch = inputDirection.y < -0.5f && physicsCheck.isGround;
         if(isCrouch) {
