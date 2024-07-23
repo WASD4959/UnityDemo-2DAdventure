@@ -313,7 +313,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 0, g: 0, b: 0, a: 0.50980395}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -818,7 +818,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 403068326}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Attack Area
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -962,7 +962,7 @@ GameObject:
   - component: {fileID: 463810012}
   - component: {fileID: 463810011}
   - component: {fileID: 463810013}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Attack3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1493,8 +1493,6 @@ MonoBehaviour:
   slideSpeed: 0.3
   slideTime: 0.5
   slideTimeCounter: 0
-  stuckTime: 1
-  stuckTimeCounter: 0
   slidePowerCost: 8
   normal: {fileID: 6200000, guid: 827885423df4a224785699dda2a6262a, type: 2}
   wall: {fileID: 6200000, guid: ef1982801aa73974abbca8bdb8f48d26, type: 2}
@@ -1507,7 +1505,6 @@ MonoBehaviour:
   isBlock: 0
   isPreJumpDone: 0
   isGameWin: 0
-  isStuck: 0
 --- !u!114 &515579367
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3785,7 +3782,7 @@ GameObject:
   - component: {fileID: 1234447515}
   - component: {fileID: 1234447514}
   - component: {fileID: 1234447516}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Attack2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3899,7 +3896,7 @@ GameObject:
   - component: {fileID: 1292569423}
   - component: {fileID: 1292569425}
   - component: {fileID: 1292569424}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Sign Spirte
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4745,7 +4742,7 @@ GameObject:
   - component: {fileID: 1752282446}
   - component: {fileID: 1752282445}
   - component: {fileID: 1752282447}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Attack1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5167,7 +5164,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 0.87441176, b: 0.54402506, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -5494,7 +5491,7 @@ GameObject:
   - component: {fileID: 2117832459}
   - component: {fileID: 2117832460}
   - component: {fileID: 2117832461}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Sign
   m_TagString: Untagged
   m_Icon: {fileID: 0}

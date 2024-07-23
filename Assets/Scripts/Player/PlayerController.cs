@@ -98,7 +98,7 @@ public class PlayerController : MonoBehaviour
         inputControl.Enable();
         // //加载场景时对玩家输入的控制；
         // sceneLoadEvent.LoadRequestEvent += OnLoadEvent;
-        // SceneLoadedEvent.OnEventRaised += OnSceneLoadedEvent;
+        SceneLoadedEvent.OnEventRaised += OnSceneLoadedEvent;
         loadDataEvent.OnEventRaised += OnLoadDataEvent;
         backToMenuEvent.OnEventRaised += OnLoadDataEvent;
         gameWinEvent.OnEventRaised += OnGameWinEvent;
@@ -107,19 +107,18 @@ public class PlayerController : MonoBehaviour
     private void OnDisable() {
         inputControl.Disable();
         // sceneLoadEvent.LoadRequestEvent -= OnLoadEvent;
-        // SceneLoadedEvent.OnEventRaised -= OnSceneLoadedEvent;
+        SceneLoadedEvent.OnEventRaised -= OnSceneLoadedEvent;
         loadDataEvent.OnEventRaised -= OnLoadDataEvent;
         backToMenuEvent.OnEventRaised -= OnLoadDataEvent;
         gameWinEvent.OnEventRaised -= OnGameWinEvent;
     }
 
     private void Update() {
-        inputDirection = inputControl.GamePlay.Move.ReadValue<Vector2>();
-
-        if(isGameWin && inputControl.UI.AnyKey.triggered){
-            isGameWin = false;
-            backToMenuEvent.RaiseEvent();    
+        if(isGameWin && inputControl.UI.AnyKey.triggered){           
+            backToMenuEvent.RaiseEvent();   
         }
+
+        inputDirection = inputControl.GamePlay.Move.ReadValue<Vector2>();
     }
 
     private void FixedUpdate() {
@@ -158,11 +157,13 @@ public class PlayerController : MonoBehaviour
     private void OnSceneLoadedEvent()
     {
         inputControl.GamePlay.Enable();
+        isGameWin = false;
     }
 
     private void OnGameWinEvent()
     {
         isGameWin = true;
+        inputControl.GamePlay.Disable();
     }
 
     public void Move() {
