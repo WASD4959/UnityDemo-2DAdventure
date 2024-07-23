@@ -11,6 +11,7 @@ public class Trophy : MonoBehaviour
     public float frequency = 0.5f;
 
     private Vector3 startPos;
+    private bool isWin;
 
     private void Start() {
         startPos = transform.position;
@@ -22,7 +23,8 @@ public class Trophy : MonoBehaviour
     }
 
     private void OnTriggerEnter2D(Collider2D other) {
-        if(other.CompareTag("Player")){
+        if(other.CompareTag("Player") && !isWin){
+            isWin = true;
             gameWinEvent.RaiseEvent();
             GetComponent<AudioDefination>()?.PlayAudioClip(); 
         }
